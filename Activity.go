@@ -1,11 +1,14 @@
 package domain
 
+import "time"
+
 type Activity struct {
 	ActivityID   string `json:"ActivityID"`
 	OwnerID      string `json:"OwnerID"`
 	Title        string `json:"Title"`
 	ActivityType string `json:"ActivityType"`
-	DateCreated  string `json:"Date"`
+	Description  string `json:"Description"`
+	DateCreated  time.Time
 	Maintainers  []Maintainer
 }
 type ActivityRepository interface {
@@ -13,4 +16,5 @@ type ActivityRepository interface {
 	Delete(ActivityID string) error
 	FindById(activityID string) (Activity, error)
 	Update(activity Activity) error
+	Search(searchText string, category []string, limit int, offset int) ([]Activity, error)
 }
