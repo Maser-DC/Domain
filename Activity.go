@@ -7,7 +7,7 @@ type Activity struct {
 	OwnerID      string `json:"OwnerID"`
 	Title        string `json:"Title"`
 	ActivityType string `json:"ActivityType"`
-	Description  string `json:"Description"`
+	OwnerName    string `json:"OwnerName"`
 	DateCreated  time.Time
 	Maintainers  []Maintainer
 }
